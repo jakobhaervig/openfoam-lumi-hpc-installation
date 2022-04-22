@@ -1,10 +1,14 @@
 # Installing OpenFOAM on LUMI supercomputers
-This short guide lists the steps for an easy OpenFOAM installation on the [LUMI supercomputer](https://lumi-supercomputer.eu). In the following, ```<project_id>``` refers to your project ID allocated on LUMI (commonly includes "project_").
+This short guide lists the steps for an easy OpenFOAM installation on the [LUMI supercomputer](https://lumi-supercomputer.eu). In the following, ```<project_id>``` refers to your project ID allocated on LUMI (commonly includes "project_"). In my case the ```<project_id>``` is "project_465000092":
+```shell
+$ export project_id=project_465000092
+```
 
 ## 1. Compile OpenFOAM using EasyBuild
+
 *1a)* First, we need to set the EBU_USER_PREFIX variable. To make it permanent, run:
 ```shell
-$ echo "export EBU_USER_PREFIX=/scratch/<project_id>/EasyBuild" >> $HOME/.bashrc
+$ echo "export EBU_USER_PREFIX=/scratch/$project_id/EasyBuild" >> $HOME/.bashrc
 ```
 *1b)* Reload the shell:
 ```shell

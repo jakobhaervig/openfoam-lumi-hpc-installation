@@ -14,10 +14,14 @@ $ echo "export EBU_USER_PREFIX=/scratch/$project_id/EasyBuild" >> $HOME/.bashrc
 ```shell
 $ source $HOME/.bashrc
 ```
-*1c)* Next, load required modules before compiling OpenFOAM:
+*1c)* Next, load required modules:
 ```shell
 $ module load LUMI/21.12
+```
+```shell
 $ module load partition/C
+```
+```shell
 $ module load EasyBuild-user/LUMI
 ```
 *1d)* Next, search for and list the avialable OpenFOAM versions:
@@ -39,6 +43,8 @@ $ eb --try-toolchain-version=21.12 --robot OpenFOAM-9-cpeGNU-21.08.eb
 *2a)* First, load the required modules ```LUMI/21.12``` and ```partition/C```:
 ```shell
 $ module load LUMI/21.12
+```
+```shell
 $ module load partition/C
 ```
 

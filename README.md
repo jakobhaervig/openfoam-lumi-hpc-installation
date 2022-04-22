@@ -1,12 +1,12 @@
 # Installing OpenFOAM on the LUMI supercomputer
-This short guide lists the steps for an easy OpenFOAM installation on the [LUMI supercomputer](https://lumi-supercomputer.eu). In the following, ```<project_id>``` refers to your project ID allocated on LUMI (commonly includes "project_"). In my case the ```<project_id>``` is "project_465000092":
+This guide explains how to compile OpenFOAM using EasyBuild on the [LUMI supercomputer](https://lumi-supercomputer.eu). Throughout this guide, ```<project_id>``` refers to your project ID allocated to you by LUMI (commonly includes "project_"). In my case the ```<project_id>``` is "project_465000092". Go ahead and export that variable:
 ```shell
 $ export project_id=project_465000092
 ```
 
 ## 1. Compile OpenFOAM using EasyBuild
 
-*1a)* First, we need to set the EBU_USER_PREFIX variable. To make it permanent, run:
+*1a)* First, set the EBU_USER_PREFIX variable. To make it permanent, run:
 ```shell
 $ echo "export EBU_USER_PREFIX=/scratch/$project_id/EasyBuild" >> $HOME/.bashrc
 ```
@@ -33,21 +33,21 @@ $ eb --try-toolchain-version=21.12 --robot OpenFOAM-9-cpeGNU-21.08.eb
 ```
 
 ## 2. Load the newly complield OpenFOAM module
-*Note:* All the commands in this step can instead be added in the top of your slurm file. See 
+*Note:* The commands in this step can instead be added to the top of your SLURM file. See 
 [3. Example of slurm file](#3-example-of-slurm-file).
 
-*2a)* To load your OpenFOAM module, you first need to load the ```LUMI/21.12``` and ```partition/C``` modules:
+*2a)* First, load the required modules ```LUMI/21.12``` and ```partition/C```:
 ```shell
 $ module load LUMI/21.12
 $ module load partition/C
 ```
 
-*2b)* Now load the newly compiled OpenFOAM module:
+*2b)* Next, load the freshly compiled OpenFOAM module:
 ```shell
 $ module load OpenFOAM/OpenFOAM-9-cpeGNU-21.12
 ```
 
-*2c)* Finally, source the OpenFOAM variables:
+*2c)* Finally, source the OpenFOAM installation:
 ```shell
 $ source $EBROOTOPENFOAM/etc/bashrc WM_COMPILER=Cray WM_MPLIB=CRAY-MPICH
 ```
@@ -58,9 +58,9 @@ $ simpleFoam -help
 
 ## 3. Example of slurm file
 In the below example of slurm file. Remember to change:
-- ```<simulation_name>```: A user-specified name to easier distinguish the simulations and track progress.
+- ```<simulation_name>```: A user-specified name to easier keep track of your running simulations.
 - ```<project_id>```: The ID given to the project (including "project_").
-- ```<email_address>```: The e-mail address that will be sent updates.
+- ```<email_address>```: The e-mail address that will receive updates.
 ```bash
 #!/bin/bash -l
 

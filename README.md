@@ -1,4 +1,4 @@
-# Installing OpenFOAM on LUMI supercomputers
+# Installing OpenFOAM on the LUMI supercomputer
 This short guide lists the steps for an easy OpenFOAM installation on the [LUMI supercomputer](https://lumi-supercomputer.eu). In the following, ```<project_id>``` refers to your project ID allocated on LUMI (commonly includes "project_"). In my case the ```<project_id>``` is "project_465000092":
 ```shell
 $ export project_id=project_465000092

@@ -36,7 +36,7 @@ In the output you will see the avialable OpenFOAM versions (e.g. OpenFOAM-9-cpeG
 $ eb --try-toolchain-version=21.12 --robot OpenFOAM-9-cpeGNU-21.08.eb
 ```
 
-## 2. Load the newly complield OpenFOAM module
+## 2. Load the newly compiled OpenFOAM module
 *Note:* The commands in this step can instead be added to the top of your SLURM file. See 
 [3. Example of slurm file](#3-example-of-slurm-file).
 

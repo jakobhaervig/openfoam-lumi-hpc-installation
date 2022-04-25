@@ -63,7 +63,7 @@ $ simpleFoam -help
 ```
 
 ## 3. Example of slurm file
-In the below example of slurm file. Remember to change:
+Below is an example of a [slurm file](https://github.com/jakobhaervig/openfoam-lumi-hpc-installation/blob/main/slurmFile). I recommend placing the slurm file in the OpenFOAM case directory. In the following remember to change:
 - ```<simulation_name>```: A user-specified name to easier keep track of your running simulations.
 - ```<project_id>```: The ID given to the project (including "project_").
 - ```<email_address>```: The e-mail address that will receive updates.
@@ -95,4 +95,9 @@ decomposePar
 
 # Start parallel simulation
 srun pisoFoam -parallel
+```
+
+Finally, commit the simulation to the slurm job scheduling system:
+```shell
+$ sbatch slurmFile
 ```

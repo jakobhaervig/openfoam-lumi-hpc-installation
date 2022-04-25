@@ -97,7 +97,17 @@ decomposePar
 srun pisoFoam -parallel
 ```
 
-Finally, commit the simulation to the slurm job scheduling system:
+Finally, commit the simulation to the slurm job scheduling system (here ```slurmFile``` is the filename of the slurm file):
 ```shell
 $ sbatch slurmFile
+```
+
+You may check the status of your running jobs by:
+```shell
+$ squeue -u $USER
+```
+
+And cancel running jobs using the ```JOBID``` shown by the above command:
+```shell
+$ scancel JOBID
 ```

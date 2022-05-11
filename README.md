@@ -50,12 +50,12 @@ module load partition/C
 
 *2b)* Next, load the freshly compiled OpenFOAM module:
 ```shell
-$ module load OpenFOAM/OpenFOAM-9-cpeGNU-21.12
+module load OpenFOAM/OpenFOAM-9-cpeGNU-21.12
 ```
 
 *2c)* Finally, source the OpenFOAM installation:
 ```shell
-$ source $EBROOTOPENFOAM/etc/bashrc WM_COMPILER=Cray WM_MPLIB=CRAY-MPICH
+source $EBROOTOPENFOAM/etc/bashrc WM_COMPILER=Cray WM_MPLIB=CRAY-MPICH
 ```
 Now you should have sourced a fully-working OpenFOAM installation. You can test your installation by:
 ```shell
@@ -99,15 +99,15 @@ srun pisoFoam -parallel
 
 Finally, commit the simulation to the slurm job scheduling system (here ```slurmFile``` is the filename of the slurm file):
 ```shell
-$ sbatch slurmFile
+sbatch slurmFile
 ```
 
 You may check the status of your running jobs by:
 ```shell
-$ squeue -u $USER
+squeue -u $USER
 ```
 
 And cancel running jobs using the ```JOBID``` shown by the above command:
 ```shell
-$ scancel JOBID
+scancel JOBID
 ```

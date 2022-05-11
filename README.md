@@ -16,7 +16,7 @@ source $HOME/.bashrc
 ```
 *1c)* Next, load required modules:
 ```shell
-module load LUMI/21.12
+module load LUMI/21.08
 ```
 ```shell
 module load partition/C
@@ -33,16 +33,16 @@ In the output you will see the avialable OpenFOAM versions (e.g. OpenFOAM-9-cpeG
 
 *1e)* Finally, compile a OpenFOAM version. To compile OpenFOAM-9 run:
 ```shell
-eb --try-toolchain-version=21.12 --robot OpenFOAM-9-cpeGNU-21.12.eb
+eb --try-toolchain-version=21.08 --robot OpenFOAM-9-cpeGNU-21.08.eb
 ```
 
 ## 2. Load the newly compiled OpenFOAM module
 *Note:* The commands in this step can instead be added to the top of your SLURM file. See 
 [3. Example of slurm file](#3-example-of-slurm-file).
 
-*2a)* First, load the required modules ```LUMI/21.12``` and ```partition/C```:
+*2a)* First, load the required modules ```LUMI/21.08``` and ```partition/C```:
 ```shell
-module load LUMI/21.12
+module load LUMI/21.08
 ```
 ```shell
 module load partition/C
@@ -50,7 +50,7 @@ module load partition/C
 
 *2b)* Next, load the freshly compiled OpenFOAM module:
 ```shell
-module load OpenFOAM/OpenFOAM-9-cpeGNU-21.12
+module load OpenFOAM/OpenFOAM-9-cpeGNU-21.08
 ```
 
 *2c)* Finally, source the OpenFOAM installation:
@@ -82,9 +82,9 @@ Below is an example of a [slurm file](https://github.com/jakobhaervig/openfoam-l
 #SBATCH --time 1-00:00:00               # Max time
 
 # Load required modules
-module load LUMI/21.12
+module load LUMI/21.08
 module load partition/C
-module load OpenFOAM/OpenFOAM-9-cpeGNU-21.12
+module load OpenFOAM/OpenFOAM-9-cpeGNU-21.08
 
 # Source the OpenFOAM installation
 source $EBROOTOPENFOAM/etc/bashrc WM_COMPILER=Cray WM_MPLIB=CRAY-MPICH

@@ -1,39 +1,39 @@
 # Installing OpenFOAM on the LUMI supercomputer
 This guide explains how to compile OpenFOAM using EasyBuild on the [LUMI supercomputer](https://lumi-supercomputer.eu). Throughout this guide, ```<project_id>``` refers to your project ID allocated to you by LUMI (commonly includes "project_"). In my case the ```<project_id>``` is "project_465000092". Go ahead and export your own project id:
 ```shell
-$ export project_id=project_465000092
+export project_id=project_465000092
 ```
 
 ## 1. Compile OpenFOAM using EasyBuild
 
 *1a)* First, set the EBU_USER_PREFIX variable. To make it permanent, run:
 ```shell
-$ echo "export EBU_USER_PREFIX=/scratch/$project_id/EasyBuild" >> $HOME/.bashrc
+echo "export EBU_USER_PREFIX=/scratch/$project_id/EasyBuild" >> $HOME/.bashrc
 ```
 *1b)* Reload the shell:
 ```shell
-$ source $HOME/.bashrc
+source $HOME/.bashrc
 ```
 *1c)* Next, load required modules:
 ```shell
-$ module load LUMI/21.12
+module load LUMI/21.12
 ```
 ```shell
-$ module load partition/C
+module load partition/C
 ```
 ```shell
-$ module load EasyBuild-user/LUMI
+module load EasyBuild-user/LUMI
 ```
 *1d)* Next, search for and list the avialable OpenFOAM versions:
 ```shell
-$ eb -S OpenFOAM
+eb -S OpenFOAM
 ```
 
 In the output you will see the avialable OpenFOAM versions (e.g. OpenFOAM-9-cpeGNU-21.08.eb corresponds to OpenFOAM-9).
 
 *1e)* Finally, compile a OpenFOAM version. To compile OpenFOAM-9 run:
 ```shell
-$ eb --try-toolchain-version=21.12 --robot OpenFOAM-9-cpeGNU-21.08.eb
+eb --try-toolchain-version=21.12 --robot OpenFOAM-9-cpeGNU-21.12.eb
 ```
 
 ## 2. Load the newly compiled OpenFOAM module
@@ -42,10 +42,10 @@ $ eb --try-toolchain-version=21.12 --robot OpenFOAM-9-cpeGNU-21.08.eb
 
 *2a)* First, load the required modules ```LUMI/21.12``` and ```partition/C```:
 ```shell
-$ module load LUMI/21.12
+module load LUMI/21.12
 ```
 ```shell
-$ module load partition/C
+module load partition/C
 ```
 
 *2b)* Next, load the freshly compiled OpenFOAM module:
@@ -59,7 +59,7 @@ $ source $EBROOTOPENFOAM/etc/bashrc WM_COMPILER=Cray WM_MPLIB=CRAY-MPICH
 ```
 Now you should have sourced a fully-working OpenFOAM installation. You can test your installation by:
 ```shell
-$ simpleFoam -help
+simpleFoam -help
 ```
 
 ## 3. Example of slurm file

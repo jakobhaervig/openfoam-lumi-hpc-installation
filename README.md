@@ -16,11 +16,13 @@ echo "export EBU_USER_PREFIX=/scratch/$project_id/EasyBuild" >> $HOME/.bashrc
 ```shell
 source $HOME/.bashrc
 ```
-## 2. Compile and load OpenFOAM (versions 9 and v2106)
-### OpenFOAM-9 
+## 2. Compile and load OpenFOAM
+
+In this step, we will install OpenFOAM-v2106. The procedure is easily adapted to other OpenFOAM versions.
+
 Load required modules:
 ```shell
-module load LUMI/21.12
+module load LUMI/22.08
 ```
 ```shell
 module load partition/C
@@ -33,85 +35,35 @@ Next, search for and list the available OpenFOAM versions:
 eb -S OpenFOAM
 ```
 
-In the output you will see the avialable OpenFOAM versions (e.g., OpenFOAM-9-cpeGNU-21.12.eb corresponds to OpenFOAM-9). Compile OpenFOAM-9 version with
+In the output you will see the avialable OpenFOAM versions (e.g., OpenFOAM-v2106-cpeGNU-22.08.eb corresponds to OpenFOAM-v2106). Finally, compile OpenFOAM-v2106 version with
 ```shell
-eb --try-toolchain-version=21.12 --robot OpenFOAM-9-cpeGNU-21.12.eb
+eb --try-toolchain-version=22.08 --robot OpenFOAM-v2106-cpeGNU-22.08.eb
 ```
-We will now see how to load OpenFOAM-9.
+We will now see how to load OpenFOAM-v2106.
 
 *Note:* The following commands can instead be added to the top of your SLURM file. See 
 [3. Example of slurm file](#3-example-of-slurm-file).
 
 First, load the required modules ```LUMI/21.12``` and ```partition/C```:
 ```shell
-module load LUMI/21.12
+module load LUMI/22.08
 ```
 ```shell
 module load partition/C
 ```
 Next, load the freshly compiled OpenFOAM module:
 ```shell
-module load OpenFOAM/OpenFOAM-9-cpeGNU-21.12
+module load OpenFOAM/OpenFOAM-v2106-cpeGNU-22.08
 ```
 Finally, source the OpenFOAM installation:
 ```shell
 source $EBROOTOPENFOAM/etc/bashrc WM_COMPILER=Cray WM_MPLIB=CRAY-MPICH
 ```
-Now you should have sourced a fully-working OpenFOAM-9 installation. You can test your installation by:
+Now you should have sourced a fully-working OpenFOAM-v2106 installation. You can test your installation by:
 ```shell
 simpleFoam -help
 ```
 
-### OpenFOAM v2106 
-The compilation of OpenFOAM v2106 under toolchain 22.06 is slightly more complicated due to compilation issues between GCC 11 and at least certain versions of GLIBC. 
-
-Two files that are not currently on the system should be put
-together in a subdirectory, preferably with no further subdirectories:
-
-```shell
-wget https://raw.githubusercontent.com/Lumi-supercomputer/LUMI-EasyBuild-contrib/OpenFOAM/22.06/easybuild/easyconfigs/c/CGAL/CGAL-4.12.2-cpeGNU-22.06-OpenFOAM.eb
-```
-```shell
-wget https://raw.githubusercontent.com/Lumi-supercomputer/LUMI-EasyBuild-contrib/OpenFOAM/22.06/easybuild/easyconfigs/o/OpenFOAM/OpenFOAM-v2106-cpeGNU-22.06.eb
-```
-Enter that subdirectory and load modules:
-```shell
-module load LUMI/22.06
-```
-```shell
-module load partition/C
-```
-```shell
-module load EasyBuild-user/LUMI
-```
-Now, install OpenFOAM from your chosen subdirectory using 
-```shell
-eb -r . CGAL-4.12.2-cpeGNU-22.06-OpenFOAM.eb OpenFOAM-v2106-cpeGNU-22.06.eb
-```
-We will now see how to load OpenFOAM v2106.
-
-*Note:* The following commands can instead be added to the top of your SLURM file. See 
-[3. Example of slurm file](#3-example-of-slurm-file).
-
-First, load the required modules ```LUMI/22.06``` and ```partition/C```:
-```shell
-module load LUMI/22.06
-```
-```shell
-module load partition/C
-```
-Next, load the freshly compiled OpenFOAM module:
-```shell
-module load OpenFOAM/v2106-cpeGNU-22.06
-```
-Finally, source the OpenFOAM installation:
-```shell
-source $EBROOTOPENFOAM/etc/bashrc WM_COMPILER=Cray WM_MPLIB=CRAY-MPICH
-```
-Now you should have sourced a fully-working OpenFOAM v2106 installation. You can test your installation by:
-```shell
-simpleFoam -help
-```
 
 ## 3. Example of slurm file
 Below is an example of a [slurm file](https://github.com/jakobhaervig/openfoam-lumi-hpc-installation/blob/main/slurmFile). I recommend placing the slurm file in the OpenFOAM case directory. In the following remember to change:
@@ -133,9 +85,9 @@ Below is an example of a [slurm file](https://github.com/jakobhaervig/openfoam-l
 #SBATCH --time 1-00:00:00               # Max time
 
 # Load required modules
-module load LUMI/21.08
+module load LUMI/22.08
 module load partition/C
-module load OpenFOAM/OpenFOAM-9-cpeGNU-21.08
+module load OpenFOAM/OpenFOAM-v2106-cpeGNU-22.08
 
 # Source the OpenFOAM installation
 source $EBROOTOPENFOAM/etc/bashrc WM_COMPILER=Cray WM_MPLIB=CRAY-MPICH

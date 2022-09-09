@@ -53,7 +53,7 @@ module load partition/C
 ```
 Next, load the freshly compiled OpenFOAM module:
 ```shell
-module load OpenFOAM/OpenFOAM-v2106-cpeGNU-22.08
+module load OpenFOAM/v2106-cpeGNU-22.08
 ```
 Finally, source the OpenFOAM installation:
 ```shell
@@ -87,7 +87,7 @@ Below is an example of a [slurm file](https://github.com/jakobhaervig/openfoam-l
 # Load required modules
 module load LUMI/22.08
 module load partition/C
-module load OpenFOAM/OpenFOAM-v2106-cpeGNU-22.08
+module load OpenFOAM/v2106-cpeGNU-22.08
 
 # Source the OpenFOAM installation
 source $EBROOTOPENFOAM/etc/bashrc WM_COMPILER=Cray WM_MPLIB=CRAY-MPICH

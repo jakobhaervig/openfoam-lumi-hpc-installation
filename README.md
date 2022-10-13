@@ -1,5 +1,5 @@
 # Installing OpenFOAM on the LUMI supercomputer using EasyBuild
-This guide explains how to compile OpenFOAM using EasyBuild on the [LUMI supercomputer](https://lumi-supercomputer.eu). It is explained how to install both the Foundation and ESI version of OpenFOAM, i.e., OpenFOAM-9 and OpenFOAM v2106, respectively. Current (August 2022) LUMI toolchains are 21.12 and 22.06 (expected to be superseeded by 22.08). With EasyBuild, OpenFOAM v9 is available with the 21.12 toolchain while OpenFOAM v2106 is available with the 22.06 toolchain.
+This guide explains how to compile OpenFOAM using EasyBuild on the [LUMI supercomputer](https://lumi-supercomputer.eu). It is explained how to install both the Foundation and ESI version of OpenFOAM, i.e., OpenFOAM-9 and OpenFOAM v2106, respectively. Should you need any other versions you may use one of the existing EasyBuild files and modify as needed. The people at LUMI keep a [GitHub repo](https://github.com/Lumi-supercomputer/LUMI-EasyBuild-contrib/tree/main/easybuild/easyconfigs/o/OpenFOAM) with the files, which serve as excellent starting points.
 
 Throughout this guide, ```<project_id>``` refers to your project ID allocated to you by LUMI (commonly includes "project_"). In my case the ```<project_id>``` is "project_465000092". Go ahead and export your own project id:
 ```shell

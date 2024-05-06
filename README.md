@@ -57,8 +57,6 @@ Below is an example of a [slurm file](https://github.com/jakobhaervig/openfoam-l
 - ```<project_id>```: The ID given to the project (including "project_").
 - ```<email_address>```: The e-mail address that will receive updates.
 
-https://github.com/jakobhaervig/openfoam-lumi-hpc-installation/blob/main/slurmFile
-
 Finally, commit the simulation to the slurm job scheduling system (here ```slurmFile``` is the filename of the slurm file):
 ```shell
 sbatch slurmFile

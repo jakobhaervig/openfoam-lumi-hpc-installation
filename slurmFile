@@ -12,8 +12,7 @@
 #SBATCH --time 1-00:00:00               # Max time (days-hours:minutes:seconds)
 
 # Load required modules
-module load LUMI/21.12
-module load partition/C
+module load LUMI/23.09 partition/C EasyBuild-user
 module load OpenFOAM/OpenFOAM-9-cpeGNU-21.12
 
 # Source the OpenFOAM installation

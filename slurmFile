@@ -13,7 +13,7 @@
 
 # Load required modules
 module load LUMI/23.09 partition/C EasyBuild-user
-module load OpenFOAM/OpenFOAM-9-cpeGNU-21.12
+module load OpenFOAM/v2312-cpeGNU-23.09
 
 # Source the OpenFOAM installation
 source $EBROOTOPENFOAM/etc/bashrc WM_COMPILER=Cray WM_MPLIB=CRAY-MPICH
